@@ -30,7 +30,7 @@ public class ApiTests
         var result = Types
             .InAssembly(typeof(Application.AssemblyReference).Assembly)
             .Should()
-            .HaveDependencyOn("Application")
+            .HaveDependencyOn("Kernex.Application")
             .GetResult();
         result.IsSuccessful.Should().BeTrue();
     }
