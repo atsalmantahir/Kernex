@@ -35,9 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Configurations\" />
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
 
 </Project>

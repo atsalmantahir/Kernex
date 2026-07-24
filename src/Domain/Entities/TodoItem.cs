@@ -2,9 +2,9 @@
 
 public class TodoItem : BaseAuditableEntity
 {
-    public int ID { get; set; }
+    public Guid ID { get; set; }
 
-    public int ListId { get; set; }
+    public Guid ListId { get; set; }
 
     public string? Title { get; set; }
 
