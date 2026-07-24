@@ -1,8 +1,22 @@
 ﻿
+using Application.Feature.TodoList.Queries.Get;
+using Domain.Entities;
+
 namespace Application.Common.Mappings;
 
 public static class MappingExtensions
 {
+    public static TodoListVM? ToQuerytodoItemDto(this TodoList todoItem)
+    {
+        return todoItem != null ? new TodoListVM
+        {
+            ID = todoItem.ID,
+            Title = todoItem.Title,
+            Colour = todoItem.Colour,
+        } : null;
+    }
+
+
     // TODO
     //public static Task<PaginatedList<TDestination>> PaginatedListAsync<TDestination>(this IQueryable<TDestination> queryable, int pageNumber, int pageSize) where TDestination : class
     //    => PaginatedList<TDestination>.CreateAsync(queryable.AsNoTracking(), pageNumber, pageSize);
@@ -41,15 +55,15 @@ public static class MappingExtensions
     //    {
     //        Id = department.DepartmentId,
     //        DepartmentName = department.DepartmentName,
-    //        Organisation = new OrganisationVM 
+    //        todoItem = new todoItemVM 
     //        {
-    //            Id = department.Organisation.OrganisationId,
-    //            OrganisationName = department.Organisation.OrganisationName,
-    //            Address = department.Organisation.Address,
-    //            DailyWorkingHours = department.Organisation.DailyWorkingHours,
-    //            Logo = department.Organisation.Logo,
-    //            TimeIn = department.Organisation.TimeIn,
-    //            TimeOut = department.Organisation.TimeOut,
+    //            Id = department.todoItem.todoItemId,
+    //            todoItemName = department.todoItem.todoItemName,
+    //            Address = department.todoItem.Address,
+    //            DailyWorkingHours = department.todoItem.DailyWorkingHours,
+    //            Logo = department.todoItem.Logo,
+    //            TimeIn = department.todoItem.TimeIn,
+    //            TimeOut = department.todoItem.TimeOut,
     //        },
     //    } : null;
     //}
@@ -122,64 +136,64 @@ public static class MappingExtensions
     //    };
     //}
 
-    //public static CreateOrganisationCommand ToDto(this Organisation organisation) 
+    //public static CreatetodoItemCommand ToDto(this todoItem todoItem) 
     //{
-    //    if (organisation == null) 
+    //    if (todoItem == null) 
     //    {
     //        return null;
     //    }
 
-    //    return new CreateOrganisationCommand 
+    //    return new CreatetodoItemCommand 
     //    {
-    //        Address = organisation.Address,
-    //        DailyWorkingHours = organisation.DailyWorkingHours,
-    //        IsActive = organisation.IsActive,
-    //        Logo = organisation.Logo,
-    //        OrganisationName = organisation.OrganisationName,
-    //        TimeIn = organisation.TimeIn,
-    //        TimeOut = organisation.TimeOut,
-    //        WeekendHolidays = organisation.WeekendHolidays
+    //        Address = todoItem.Address,
+    //        DailyWorkingHours = todoItem.DailyWorkingHours,
+    //        IsActive = todoItem.IsActive,
+    //        Logo = todoItem.Logo,
+    //        todoItemName = todoItem.todoItemName,
+    //        TimeIn = todoItem.TimeIn,
+    //        TimeOut = todoItem.TimeOut,
+    //        WeekendHolidays = todoItem.WeekendHolidays
     //    };
     //}
 
-    //public static Organisation ToCreateOrganisationEntity(this CreateOrganisationCommand organisation)
+    //public static todoItem ToCreatetodoItemEntity(this CreatetodoItemCommand todoItem)
     //{
-    //    if (organisation == null)
+    //    if (todoItem == null)
     //    {
     //        return null;
     //    }
 
-    //    return new Organisation
+    //    return new todoItem
     //    {
-    //        Address = organisation.Address,
-    //        DailyWorkingHours = organisation.DailyWorkingHours,
-    //        IsActive = organisation.IsActive,
-    //        Logo = organisation.Logo,
-    //        OrganisationName = organisation.OrganisationName,
-    //        TimeIn = organisation.TimeIn,
-    //        TimeOut = organisation.TimeOut,
-    //        WeekendHolidays = organisation.WeekendHolidays,
+    //        Address = todoItem.Address,
+    //        DailyWorkingHours = todoItem.DailyWorkingHours,
+    //        IsActive = todoItem.IsActive,
+    //        Logo = todoItem.Logo,
+    //        todoItemName = todoItem.todoItemName,
+    //        TimeIn = todoItem.TimeIn,
+    //        TimeOut = todoItem.TimeOut,
+    //        WeekendHolidays = todoItem.WeekendHolidays,
     //    };
     //}
 
-    //public static Organisation ToUpdateOrganisationEntity(this UpdateOrganisationCommand organisation, int organisationId)
+    //public static todoItem ToUpdatetodoItemEntity(this UpdatetodoItemCommand todoItem, int todoItemId)
     //{
-    //    if (organisation == null)
+    //    if (todoItem == null)
     //    {
     //        return null;
     //    }
 
-    //    return new Organisation
+    //    return new todoItem
     //    {
-    //        OrganisationId = organisationId,
-    //        Address = organisation.Address,
-    //        DailyWorkingHours = organisation.DailyWorkingHours,
-    //        IsActive = organisation.IsActive,
-    //        Logo = organisation.Logo,
-    //        OrganisationName = organisation.OrganisationName,
-    //        TimeIn = organisation.TimeIn,
-    //        TimeOut = organisation.TimeOut,
-    //        WeekendHolidays = organisation.WeekendHolidays,
+    //        todoItemId = todoItemId,
+    //        Address = todoItem.Address,
+    //        DailyWorkingHours = todoItem.DailyWorkingHours,
+    //        IsActive = todoItem.IsActive,
+    //        Logo = todoItem.Logo,
+    //        todoItemName = todoItem.todoItemName,
+    //        TimeIn = todoItem.TimeIn,
+    //        TimeOut = todoItem.TimeOut,
+    //        WeekendHolidays = todoItem.WeekendHolidays,
     //    };
     //}
 
@@ -231,7 +245,7 @@ public static class MappingExtensions
     //    };
     //}
 
-    //public static Department ToEntity(this CreateDepartmentCommand request, int organisationId)
+    //public static Department ToEntity(this CreateDepartmentCommand request, int todoItemId)
     //{
     //    if (request == null)
     //    {
@@ -240,12 +254,12 @@ public static class MappingExtensions
 
     //    return new Department
     //    {
-    //        OrganisationId = organisationId,
+    //        todoItemId = todoItemId,
     //        DepartmentName = request.DepartmentName,
     //    };
     //}
 
-    //public static Department ToEntity(this UpdateDepartmentCommand request, int organisationId, int departmentId)
+    //public static Department ToEntity(this UpdateDepartmentCommand request, int todoItemId, int departmentId)
     //{
     //    if (request == null)
     //    {
@@ -255,7 +269,7 @@ public static class MappingExtensions
     //    return new Department
     //    {
     //        DepartmentId = departmentId,
-    //        OrganisationId = organisationId,
+    //        todoItemId = todoItemId,
     //        DepartmentName = request.DepartmentName,
     //    };
     //}
@@ -307,25 +321,25 @@ public static class MappingExtensions
     //    return designations?.Select(x => x.ToDto());
     //}
 
-    //public static OrganisationVM ToQueryOrganisationDto(this Organisation organisation)
+    //public static todoItemVM ToQuerytodoItemDto(this todoItem todoItem)
     //{
-    //    return organisation != null ? new OrganisationVM
+    //    return todoItem != null ? new todoItemVM
     //    {
-    //        Id = organisation.OrganisationId,
-    //        Address = organisation.Address,
-    //        DailyWorkingHours = organisation.DailyWorkingHours,
-    //        IsActive = organisation.IsActive,
-    //        Logo = organisation.Logo,
-    //        OrganisationName = organisation.OrganisationName,
-    //        TimeIn = organisation.TimeIn,
-    //        TimeOut = organisation.TimeOut,
-    //        WeekendHolidays = organisation.WeekendHolidays,
+    //        Id = todoItem.todoItemId,
+    //        Address = todoItem.Address,
+    //        DailyWorkingHours = todoItem.DailyWorkingHours,
+    //        IsActive = todoItem.IsActive,
+    //        Logo = todoItem.Logo,
+    //        todoItemName = todoItem.todoItemName,
+    //        TimeIn = todoItem.TimeIn,
+    //        TimeOut = todoItem.TimeOut,
+    //        WeekendHolidays = todoItem.WeekendHolidays,
     //    } : null;
     //}
 
-    //public static IQueryable<OrganisationVM> ToQueryOrganisationListDto(this IQueryable<Organisation> organisations)
+    //public static IQueryable<todoItemVM> ToQuerytodoItemListDto(this IQueryable<todoItem> todoItems)
     //{
-    //    return organisations?.Select(x => x.ToQueryOrganisationDto());
+    //    return todoItems?.Select(x => x.ToQuerytodoItemDto());
     //}
 
     //public static EmployeeEducation ToEmployeeEducationEntity(this CreateEmployeeEducationCommand request, int employeeProfileId) 
@@ -781,7 +795,7 @@ public static class MappingExtensions
     //            LoanApprovalStatus = x.LoanApprovalStatus,
     //            Reason = x.Reason,
     //            Title = x.Title,
-                
+
     //        }).ToList(),
     //    };
     //}

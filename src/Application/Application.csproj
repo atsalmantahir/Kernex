@@ -19,12 +19,15 @@
   </ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Feature\Customer\Commands\" />
-	  <Folder Include="Feature\Customer\Queries\" />
-	  <Folder Include="Feature\Order\Commands\" />
-	  <Folder Include="Feature\Order\Queries\" />
-	  <Folder Include="Feature\Todo\Commands\" />
-	  <Folder Include="Feature\Todo\Queries\" />
+	  <Folder Include="Feature\TodoItem\Commands\Create\" />
+	  <Folder Include="Feature\TodoItem\Commands\Delete\" />
+	  <Folder Include="Feature\TodoItem\Commands\Update\" />
+	  <Folder Include="Feature\TodoItem\Queries\Get\" />
+	  <Folder Include="Feature\TodoItem\Queries\List\" />
+	  <Folder Include="Feature\TodoList\Commands\Create\" />
+	  <Folder Include="Feature\TodoList\Commands\Delete\" />
+	  <Folder Include="Feature\TodoList\Commands\Update\" />
+	  <Folder Include="Feature\TodoList\Queries\List\" />
 	</ItemGroup>
 
 </Project>
