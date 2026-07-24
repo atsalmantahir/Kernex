@@ -1,4 +1,5 @@
-﻿using Application.Feature.TodoList.Queries;
+﻿using Application.Feature.TodoList.Commands.Create;
+using Application.Feature.TodoList.Queries;
 using Domain.Entities;
 
 namespace Application.Common.Mappings;
@@ -28,6 +29,21 @@ public static class MappingExtensions
             Colour = x.Colour,
             Title = x.Title,
         });
+    }
+
+    public static TodoList ToCreateTodoListEntity(this CreateTodoListCommand createTodoList)
+    {
+        if (createTodoList == null)
+        {
+            return null;
+        }
+
+        return new TodoList
+        {
+            Title = createTodoList.Title,
+            Colour = createTodoList.Colour,
+            CreatedAt = DateTime.UtcNow
+        };
     }
 
     #region Old Code

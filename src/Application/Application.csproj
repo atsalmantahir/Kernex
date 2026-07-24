@@ -24,7 +24,6 @@
 	  <Folder Include="Feature\TodoItem\Commands\Update\" />
 	  <Folder Include="Feature\TodoItem\Queries\Get\" />
 	  <Folder Include="Feature\TodoItem\Queries\List\" />
-	  <Folder Include="Feature\TodoList\Commands\Create\" />
 	  <Folder Include="Feature\TodoList\Commands\Delete\" />
 	  <Folder Include="Feature\TodoList\Commands\Update\" />
 	</ItemGroup>

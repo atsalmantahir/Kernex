@@ -3,9 +3,9 @@ using Domain.Repositories;
 
 namespace Application.Feature.TodoList.Queries.Get;
 
-public record TodoListQuery(Guid id) : IRequest<TodoListVM>;
+public record GetTodoListQuery(Guid id) : IRequest<TodoListVM>;
 
-public class TodoListQueryHandler : IRequestHandler<TodoListQuery, TodoListVM> 
+public class TodoListQueryHandler : IRequestHandler<GetTodoListQuery, TodoListVM> 
 {
     private readonly ITodoListRepository repository;
 
@@ -14,7 +14,7 @@ public class TodoListQueryHandler : IRequestHandler<TodoListQuery, TodoListVM>
         this.repository = repository;
     }
 
-    public async Task<TodoListVM> Handle(TodoListQuery request, CancellationToken cancellationToken)
+    public async Task<TodoListVM> Handle(GetTodoListQuery request, CancellationToken cancellationToken)
     {
         var todoList = await this.repository.GetAsync(request.id);
         return todoList.ToQuerytodoItemDto();
