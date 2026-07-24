@@ -3,18 +3,18 @@ using Domain.Repositories;
 
 namespace Application.Feature.TodoList.Queries.Get;
 
-public record GetTodoListQuery(Guid id) : IRequest<TodoListVM>;
+public record TodoListQuery(Guid id) : IRequest<TodoListVM>;
 
-public class GetTodoListQueryHandler : IRequestHandler<GetTodoListQuery, TodoListVM> 
+public class TodoListQueryHandler : IRequestHandler<TodoListQuery, TodoListVM> 
 {
     private readonly ITodoListRepository repository;
 
-    public GetTodoListQueryHandler(ITodoListRepository repository)
+    public TodoListQueryHandler(ITodoListRepository repository)
     {
         this.repository = repository;
     }
 
-    public async Task<TodoListVM> Handle(GetTodoListQuery request, CancellationToken cancellationToken)
+    public async Task<TodoListVM> Handle(TodoListQuery request, CancellationToken cancellationToken)
     {
         var todoList = await this.repository.GetAsync(request.id);
         return todoList.ToQuerytodoItemDto();

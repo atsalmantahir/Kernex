@@ -1,5 +1,4 @@
-﻿
-using Application.Feature.TodoList.Queries.Get;
+﻿using Application.Feature.TodoList.Queries;
 using Domain.Entities;
 
 namespace Application.Common.Mappings;
@@ -16,7 +15,22 @@ public static class MappingExtensions
         } : null;
     }
 
+    public static IQueryable<TodoListVM>? ToDto(this IQueryable<TodoList> todoLists)
+    {
+        if (todoLists == null)
+        {
+            return null;
+        }
 
+        return todoLists.Select(x => new TodoListVM
+        {
+            ID = x.ID,
+            Colour = x.Colour,
+            Title = x.Title,
+        });
+    }
+
+    #region Old Code
     // TODO
     //public static Task<PaginatedList<TDestination>> PaginatedListAsync<TDestination>(this IQueryable<TDestination> queryable, int pageNumber, int pageSize) where TDestination : class
     //    => PaginatedList<TDestination>.CreateAsync(queryable.AsNoTracking(), pageNumber, pageSize);
@@ -898,4 +912,5 @@ public static class MappingExtensions
     //{
     //    return request == null ? null : request.Select(x => x.ToDto());
     //}
+    #endregion
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Feature.TodoList.Queries.Get;
+namespace Application.Feature.TodoList.Queries;
 
 public class TodoListVM
 {
