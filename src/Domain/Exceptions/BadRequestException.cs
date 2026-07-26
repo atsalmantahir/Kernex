@@ -1,5 +1,7 @@
 ﻿namespace Domain.Exceptions;
 
-public class BadRequestException
-{
+public abstract class BadRequestException : Exception
+{   protected BadRequestException(string message)
+        : base(message)
+    { }
 }
