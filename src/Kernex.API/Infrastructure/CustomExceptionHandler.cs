@@ -3,7 +3,7 @@ using Domain.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HumanResourceManagement.Api.Infrastructure;
+namespace Api.Infrastructure;
 
 public class CustomExceptionHandler : IExceptionHandler
 {

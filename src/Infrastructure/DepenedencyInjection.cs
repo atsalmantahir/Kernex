@@ -1,8 +1,9 @@
-﻿using Application.Common.Interfaces;
+﻿
+
+using Application.Common.Interfaces;
 using Ardalis.GuardClauses;
 using Domain.Constants;
-using HumanResourceManagement.Infrastructure.Data;
-using HumanResourceManagement.Infrastructure.Data.Interceptors;
+using Infrastructure.Data;
 using Infrastructure.Data.Interceptors;
 using Infrastructure.Extensions;
 using Infrastructure.Identity;

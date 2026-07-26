@@ -1,6 +1,6 @@
-﻿using Azure.Identity;
-using HumanResourceManagement.Api.Infrastructure;
-using HumanResourceManagement.Infrastructure.Data;
+﻿using Api.Infrastructure;
+using Azure.Identity;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kernex.API;

@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
 using Application.Common.Interfaces;
-using Domain.Common;
 using Domain.Entities;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace HumanResourceManagement.Infrastructure.Data;
+namespace Infrastructure.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
 {

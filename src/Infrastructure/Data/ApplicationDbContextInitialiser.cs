@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace HumanResourceManagement.Infrastructure.Data;
+namespace Infrastructure.Data;
 
 public static class InitialiserExtensions
 {
