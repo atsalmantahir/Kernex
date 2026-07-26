@@ -7,7 +7,16 @@
   </PropertyGroup>
 
 
+	<!--#if ('True' == 'False')-->
+	<!-- The above expression ensures this block will be excluded when the project is created using `dotnet new ca-sln` -->
 	<ItemGroup>
+		<Compile Remove="Data\SQLite\**" />
+		<EmbeddedResource Remove="Data\SQLite\**" />
+		<None Remove="Data\SQLite\**" />
+	</ItemGroup>
+	<!--#endif-->
+	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.11.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
@@ -20,7 +29,6 @@
 		<!--#if (UseLocalDB)-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
 		<!--#endif-->
-
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
 			<PrivateAssets>all</PrivateAssets>

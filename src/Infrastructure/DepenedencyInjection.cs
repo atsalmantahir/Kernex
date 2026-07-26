@@ -9,6 +9,7 @@ using Infrastructure.Extensions;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,11 +38,11 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+            options.UseSqlServer(connectionString);
 
 #if (UseSQLite)
             options.UseSqlite(connectionString);
 #else
-            //options.UseSqlServer(connectionString);
 #endif
         }, ServiceLifetime.Scoped);
 
