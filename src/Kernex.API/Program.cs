@@ -17,6 +17,8 @@ try
     Log.Information("Starting web application");
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddHealthChecks();
+
     // Add services to the container.
     builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 
@@ -27,7 +29,7 @@ try
     // Register the Swagger generator
     builder.Services.AddSwaggerGen(c =>
     {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "HR Management API", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kernex API", Version = "v1" });
 
         // Optional: Set the comments path for the Swagger JSON and UI.
         // This enables the Swagger UI to display XML comments from controllers.
@@ -86,10 +88,12 @@ try
     // specifying the Swagger JSON endpoint.
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "HR Management API");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Kernex API");
     });
 
     app.MapEndpoints();
+
+    app.MapHealthChecks("/health");
 
     app.Run();
 
