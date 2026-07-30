@@ -3,6 +3,7 @@ using Application;
 using Infrastructure;
 using Kernex.API;
 using Kernex.API.Extensions;
+using Kernex.API.HealthChecks;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text.Json.Serialization;
@@ -17,7 +18,8 @@ try
     Log.Information("Starting web application");
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Services.AddHealthChecks();
+    builder.Services.AddHealthChecks()
+        .AddCheck<DatabaseHealthCheck>("database");
 
     // Add services to the container.
     builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
